@@ -35,7 +35,7 @@ df = spark.createDataFrame(rows, schema)
 
 # 6. Lagre til Bronze (Append mode - vi legger til nye priser hver gang)
 # I Community Edition bruker vi standard hive_metastore
-df.write.format("delta").mode("append").saveAsTable("crypto_bronze")
+df.write.format("delta").mode("overwrite").saveAsTable("crypto_project.crypto_bronze")
 
-print("Data lasted inn i crypto_bronze tabellen.")
+print("Data lasted inn i crypto_project.crypto_bronze tabellen.")
 display(df)
